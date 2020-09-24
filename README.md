@@ -1,4 +1,4 @@
-# wear-now
+# 🌤 Wear Now 👔
 Service that recommends clothing and plant care options based on the current weather.
 
 --------
