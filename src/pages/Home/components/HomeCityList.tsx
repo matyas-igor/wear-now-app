@@ -19,8 +19,14 @@ const HomeCityList: React.FC<Props> = ({ select, cities, loading, error, message
       </Flex>
     ) : cities && cities.length > 0 ? (
       cities.map((city, idx) => <HomeCityListItem onClick={() => select(city)} key={idx} city={city} />)
+    ) : message || error ? (
+      <Flex width="100%" minHeight={80} flexDirection="column" justifyContent="center" alignItems="stretch">
+        <Text fontSize={[2, null, 3]} color="red">
+          {message || error?.message}
+        </Text>
+      </Flex>
     ) : (
-      <Flex width="100%" height={80} flexDirection="column" justifyContent="center" alignItems="stretch">
+      <Flex width="100%" minHeight={80} flexDirection="column" justifyContent="center" alignItems="stretch">
         <Text fontSize={[2, null, 3]} color="gray">
           List of cities will be displayed here
         </Text>

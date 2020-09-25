@@ -42,7 +42,7 @@ const NavHeader: React.FC = () => {
           <TextWithEllipsis p={2}>
             {city.flag}&nbsp; {city.name}
           </TextWithEllipsis>
-          <Link variant="nav" to={`/?${queryString.stringify({ reset: true })}`}>
+          <Link sx={{ flexShrink: 0 }} variant="nav" width={70} to={`/?${queryString.stringify({ reset: true })}`}>
             Change
           </Link>
         </>

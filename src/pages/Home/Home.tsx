@@ -39,6 +39,8 @@ const Home: React.FC = () => {
   const select = useCallback(
     (city) => {
       setCityValue({
+        city: city.components.city,
+        country: city.components.country,
         flag: city.annotations.flag,
         name: city.formatted,
         lat: city.geometry.lat,
