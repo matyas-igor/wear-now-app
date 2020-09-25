@@ -15,11 +15,11 @@ const ForecastAdditionalInfo: React.FC<Props & ContainerProps> = ({ dataCurrent,
     <Flex
       width="100%"
       flexDirection={['column', 'row']}
-      justifyContent="flex-start"
+      justifyContent={['flex-start', 'space-between']}
       alignItems={['stretch', 'flex-start']}
     >
       <ForecastCurrentInfo mb={[4, 0]} dataCurrent={dataCurrent} timezone={timezone} />
-      <ForecastDailyInfo dataDaily={dataDaily} timezone={timezone} />
+      <ForecastDailyInfo ml={[0, 4]} dataDaily={dataDaily} timezone={timezone} />
     </Flex>
   </Container>
 )

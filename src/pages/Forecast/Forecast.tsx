@@ -50,8 +50,19 @@ const Forecast: React.FC = () => {
   ) : city && data ? (
     <>
       <ForecastMainInfo mt={5} dataCurrent={data.current} city={city} timezone={data.timezone} />
-      <ForecastHourlyInfo mt={4} dataCurrent={data.current} dataHourly={dataHourly} timezone={data.timezone} />
-      <ForecastAdditionalInfo mt={4} mb={5} dataCurrent={data.current} dataDaily={dataDaily} timezone={data.timezone} />
+      <ForecastHourlyInfo
+        mt={[4, null, 5]}
+        dataCurrent={data.current}
+        dataHourly={dataHourly}
+        timezone={data.timezone}
+      />
+      <ForecastAdditionalInfo
+        mt={[5, null, 6]}
+        mb={5}
+        dataCurrent={data.current}
+        dataDaily={dataDaily}
+        timezone={data.timezone}
+      />
     </>
   ) : error ? (
     <Container>

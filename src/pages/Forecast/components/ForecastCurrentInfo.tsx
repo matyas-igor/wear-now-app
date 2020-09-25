@@ -7,8 +7,8 @@ type Props = {
 }
 
 const ForecastCurrentInfo: React.FC<Props & BoxProps> = ({ dataCurrent, timezone, ...props }) => (
-  <Box {...props}>
-    <Flex flexGrow={1} m={-2} flexWrap="wrap" flexDirection="row">
+  <Box sx={{ flexGrow: 1 }} {...props}>
+    <Flex width="100%" m={-2} flexWrap="wrap" flexDirection="row">
       <Box width={[1 / 3, 1 / 2, 1 / 3, 1 / 4]} p={2}>
         <Text fontSize={1} mb={1} color={'#999'}>
           Sunrise

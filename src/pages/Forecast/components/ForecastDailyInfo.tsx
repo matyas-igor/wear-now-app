@@ -15,15 +15,12 @@ const StyledFlex = styled(Flex)<FlexProps>`
   &:last-of-type {
     border-bottom: 0 !important;
   }
-  &:hover {
-    background-color: #f6f6f9;
-  }
 `
 
 const ForecastDailyInfo: React.FC<Props & BoxProps> = ({ dataDaily, timezone, ...props }) => (
-  <Box width={['100%', 252, 272, 284, 296]} {...props}>
+  <Box sx={{ flexGrow: 0, flexShrink: 0 }} width={['100%', 252, 272, 284, 296]} {...props}>
     {dataDaily.map((dailyData, idx) => (
-      <StyledFlex key={idx} width="100%" flexDirection="row" px={[2, null, 3]} py={1} alignItems={'center'}>
+      <StyledFlex key={idx} width="100%" flexDirection="row" py={1} alignItems={'center'}>
         <Text sx={{ flexGrow: 1 }}>{printDate(dailyData.dt * 1000, 'EEEE', timezone)}</Text>
         <WeatherIcon name={dailyData.weather[0].icon} size={['24px', null, '28px', null, '32px']} />
         <Text textAlign="right" width={[40, null, 48]}>
