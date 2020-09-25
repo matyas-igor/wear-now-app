@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import Forecast from './pages/Forecast/Forecast'
 import Home from './pages/Home/Home'
 import { theme } from './helpers/theme'
-import NavHeader from './components/NavBar'
+import NavHeader from './components/NavHeader'
 import Normalize from './components/Normalize'
 import { Flex } from 'rebass/styled-components'
 
