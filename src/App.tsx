@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function App() {
+const App: React.FC = () => {
   return <div>test</div>
 }
 
