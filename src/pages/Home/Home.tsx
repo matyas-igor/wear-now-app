@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react'
 import queryString from 'query-string'
 import { useHistory, useLocation } from 'react-router-dom'
 import Container from '../../components/Container'
-import { Flex } from 'rebass/styled-components'
 import Spinner from '../../components/Spinner'
 import { useCitySearch } from '../../hooks/useCitySearch'
 import HomeCitySearchForm from './components/HomeCitySearchForm'
@@ -51,16 +50,12 @@ const Home: React.FC = () => {
   )
 
   return !checked ? (
-    <Flex flexGrow={1} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-      <Spinner />
-    </Flex>
+    <Spinner />
   ) : (
-    <Flex flexGrow={1} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-      <Container small>
-        <HomeCitySearchForm search={search} loading={loading} />
-        <HomeCityList select={select} cities={cities} loading={loading} error={error} message={message} />
-      </Container>
-    </Flex>
+    <Container small>
+      <HomeCitySearchForm search={search} loading={loading} />
+      <HomeCityList select={select} cities={cities} loading={loading} error={error} message={message} />
+    </Container>
   )
 }
 

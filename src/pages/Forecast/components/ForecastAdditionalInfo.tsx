@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Container, { ContainerProps } from '../../../components/Container'
 import ForecastDailyInfo from './ForecastDailyInfo'
+import ForecastCurrentInfo from './ForecastCurrentInfo'
+import { Flex } from 'rebass/styled-components'
 
 type Props = {
   dataCurrent: any
@@ -10,7 +12,15 @@ type Props = {
 
 const ForecastAdditionalInfo: React.FC<Props & ContainerProps> = ({ dataCurrent, dataDaily, timezone, ...props }) => (
   <Container {...props}>
-    <ForecastDailyInfo dataDaily={dataDaily} timezone={timezone} />
+    <Flex
+      width="100%"
+      flexDirection={['column', 'row']}
+      justifyContent="flex-start"
+      alignItems={['stretch', 'flex-start']}
+    >
+      <ForecastCurrentInfo mb={[4, 0]} dataCurrent={dataCurrent} timezone={timezone} />
+      <ForecastDailyInfo dataDaily={dataDaily} timezone={timezone} />
+    </Flex>
   </Container>
 )
 

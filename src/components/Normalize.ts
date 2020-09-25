@@ -13,7 +13,6 @@ const Normalize = createGlobalStyle`
  */
 
 html {
-  min-height: 100%;
   height: 100%;
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -27,7 +26,6 @@ html {
  */
 
 body {
-  min-height: 100%;
   height: 100%;
   font-family: system-ui, sans-serif;
   margin: 0;
@@ -35,6 +33,7 @@ body {
 
 #root {
   height: 100%;
+  min-height: 100%;
 }
 
 /**

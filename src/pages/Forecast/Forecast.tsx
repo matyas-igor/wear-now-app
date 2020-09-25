@@ -1,15 +1,12 @@
 import * as React from 'react'
-import Container from '../../components/Container'
 import { useEffect, useMemo, useState } from 'react'
+import Container from '../../components/Container'
 import { City } from '../../helpers/types'
 import queryString from 'query-string'
 import { useLocation } from 'react-router-dom'
-import ScrollContainer from 'react-indiana-drag-scroll'
 import { useWeatherForecast } from '../../hooks/useWeatherForecast'
-import { Flex, Text, Heading, Box } from 'rebass/styled-components'
+import { Text } from 'rebass/styled-components'
 import Spinner from '../../components/Spinner'
-import WeatherIcon from '../../components/WeatherIcon'
-import ForecastHourlyDataItem from './components/ForecastHourlyDataItem'
 import ForecastMainInfo from './components/ForecastMainInfo'
 import ForecastHourlyInfo from './components/ForecastHourlyInfo'
 import ForecastAdditionalInfo from './components/ForecastAdditionalInfo'
@@ -49,41 +46,25 @@ const Forecast: React.FC = () => {
   )
 
   return loading ? (
-    <Flex flexGrow={1} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-      <Spinner />
-    </Flex>
+    <Spinner />
   ) : city && data ? (
-    <Flex flexGrow={1} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-      <ForecastMainInfo dataCurrent={data.current} city={city} timezone={data.timezone} />
-      <ForecastHourlyInfo
-        mt={[4, null, 5]}
-        dataCurrent={data.current}
-        dataHourly={dataHourly}
-        timezone={data.timezone}
-      />
-      <ForecastAdditionalInfo
-        mt={[4, null, 5]}
-        dataCurrent={data.current}
-        dataDaily={dataDaily}
-        timezone={data.timezone}
-      />
-    </Flex>
+    <>
+      <ForecastMainInfo mt={5} dataCurrent={data.current} city={city} timezone={data.timezone} />
+      <ForecastHourlyInfo mt={4} dataCurrent={data.current} dataHourly={dataHourly} timezone={data.timezone} />
+      <ForecastAdditionalInfo mt={4} mb={5} dataCurrent={data.current} dataDaily={dataDaily} timezone={data.timezone} />
+    </>
   ) : error ? (
-    <Flex flexGrow={1} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-      <Container>
-        <Text fontSize={[2, null, 3]} color="red">
-          {error.message}
-        </Text>
-      </Container>
-    </Flex>
+    <Container>
+      <Text fontSize={[2, null, 3]} color="red">
+        {error.message}
+      </Text>
+    </Container>
   ) : (
-    <Flex flexGrow={1} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
-      <Container>
-        <Text fontSize={[2, null, 3]} color="gray">
-          Forecast will be displayed here
-        </Text>
-      </Container>
-    </Flex>
+    <Container>
+      <Text fontSize={[2, null, 3]} color="gray">
+        Forecast will be displayed here
+      </Text>
+    </Container>
   )
 }
 

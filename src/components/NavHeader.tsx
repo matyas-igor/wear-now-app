@@ -32,7 +32,7 @@ const NavHeader: React.FC = () => {
   }, [location])
 
   return (
-    <Flex as="nav" px={3} py={2} color="white" bg="black" alignItems="center">
+    <Flex as="nav" flexGrow={0} flexShrink={0} px={3} py={2} color="white" bg="black" alignItems="center">
       <TextWithNoWrap p={2} fontWeight="bold" minWidth={96}>
         Wear Now
       </TextWithNoWrap>

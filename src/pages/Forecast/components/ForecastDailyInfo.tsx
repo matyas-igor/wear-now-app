@@ -21,7 +21,7 @@ const StyledFlex = styled(Flex)<FlexProps>`
 `
 
 const ForecastDailyInfo: React.FC<Props & BoxProps> = ({ dataDaily, timezone, ...props }) => (
-  <Box {...props}>
+  <Box width={['100%', 252, 272, 284, 296]} {...props}>
     {dataDaily.map((dailyData, idx) => (
       <StyledFlex key={idx} width="100%" flexDirection="row" px={[2, null, 3]} py={1} alignItems={'center'}>
         <Text sx={{ flexGrow: 1 }}>{printDate(dailyData.dt * 1000, 'EEEE', timezone)}</Text>
@@ -29,7 +29,7 @@ const ForecastDailyInfo: React.FC<Props & BoxProps> = ({ dataDaily, timezone, ..
         <Text textAlign="right" width={[40, null, 48]}>
           {Math.round(dailyData.temp.max)}°
         </Text>
-        <Text textAlign="right" width={[40, null, 48]} color="gray">
+        <Text textAlign="right" width={[40, null, 48]} color={'#aaa'}>
           {Math.round(dailyData.temp.min)}°
         </Text>
       </StyledFlex>

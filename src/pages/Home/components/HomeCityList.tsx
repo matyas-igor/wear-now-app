@@ -12,7 +12,7 @@ type Props = {
 }
 
 const HomeCityList: React.FC<Props> = ({ select, cities, loading, error, message }) => (
-  <Box width="100%" mb={[3, null, 4]} minHeight={80}>
+  <Box width="100%" mb={5} minHeight={80}>
     {loading ? (
       <Flex width="100%" height={80} flexDirection="column" justifyContent="center" alignItems="center">
         <Spinner />

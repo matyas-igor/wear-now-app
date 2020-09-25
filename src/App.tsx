@@ -14,16 +14,24 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <Normalize />
       <Router>
-        <Flex height="100%" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
+        <Flex minHeight="100%" flexDirection="column" alignItems="stretch" justifyContent="flex-start">
           <NavHeader />
-          <Switch>
-            <Route path="/forecast">
-              <Forecast />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+          <Flex
+            sx={{ overflow: 'auto' }}
+            flexGrow={1}
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Switch>
+              <Route path="/forecast">
+                <Forecast />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Flex>
           <NavFooter />
         </Flex>
       </Router>

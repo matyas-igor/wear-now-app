@@ -13,7 +13,8 @@ const HomeCitySearchForm: React.FC<Props> = ({ search, loading }) => {
   const [cityName, setCityName] = useState('')
   return (
     <Form
-      my={[3, null, 4]}
+      mt={5}
+      mb={4}
       onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         search(cityName)
