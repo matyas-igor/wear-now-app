@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import Forecast from './pages/Forecast/Forecast'
 import Home from './pages/Home/Home'
