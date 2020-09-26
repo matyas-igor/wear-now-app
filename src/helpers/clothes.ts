@@ -5,6 +5,7 @@ import {
   getMessagesByFilter,
   HEAVY_RAIN_CODES,
   HEAVY_SNOW_CODES,
+  isDaySunTime,
   isForTodayDay,
   isForTodayEvening,
   isForTomorrowDay,
@@ -17,7 +18,7 @@ import {
   THUNDERSTORM_CODES,
 } from './weather'
 
-const deriveClothesMessages = (data: any[], period: string): string[] => {
+const deriveClothesMessages = (data: any[], period: string, timezone: string): string[] => {
   const messages = []
 
   const isLightRainExpected = isIncludesCodes(data, LIGHT_RAIN_CODES)
@@ -26,6 +27,9 @@ const deriveClothesMessages = (data: any[], period: string): string[] => {
   const isClearSkyExpected = isIncludesCodes(data, CLEAR_SKY_CODES)
   const isLightSnowExpected = isIncludesCodes(data, LIGHT_SNOW_CODES)
   const isHeavySnowExpected = isIncludesCodes(data, HEAVY_SNOW_CODES)
+
+  const hasSunTime =
+    data.filter((currentData: any) => isDaySunTime(utcToZonedTime(currentData.dt * 1000, timezone))).length > 0
 
   const temp = getAverageTemperature(data)
 
@@ -39,7 +43,7 @@ const deriveClothesMessages = (data: any[], period: string): string[] => {
     if (isThunderstormExpected) {
       messages.push(`Thunderstorm expected ${period}! Don't forget to take a rain jacket.`)
     }
-    if (isClearSkyExpected) {
+    if (isClearSkyExpected && hasSunTime) {
       messages.push(`It should be sunny ${period}, so a hat or sunglasses is a must.`)
     }
   } else if (temp >= 15) {
@@ -53,7 +57,7 @@ const deriveClothesMessages = (data: any[], period: string): string[] => {
         `There'll be a light breeze ${period}, so T-shirt with long sleeves or light jacket might be useful.`
       )
     }
-    if (isClearSkyExpected) {
+    if (isClearSkyExpected && hasSunTime) {
       messages.push(`It should be sunny ${period}, don't forget to take sunglasses or a hat.`)
     }
   } else if (temp >= 5) {
@@ -68,7 +72,7 @@ const deriveClothesMessages = (data: any[], period: string): string[] => {
       messages.push(`It's going to be cold ${period}, so coat or thick jumper might be sensible.`)
     }
     messages.push(`Consider taking a light beanie!`)
-    if (isClearSkyExpected) {
+    if (isClearSkyExpected && hasSunTime) {
       messages.push(`It will be sunny ${period}, consider taking sunglasses.`)
     }
   } else if (temp >= -5) {

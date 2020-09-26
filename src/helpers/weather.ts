@@ -55,6 +55,11 @@ export const isTodayEvening = (date: Date, currentDate: Date): boolean => {
   return (isTodayDay && isEveningTime) || (isTomorrowDay && isNightTime)
 }
 
+export const isDaySunTime = (date: Date): boolean => {
+  const hours = getHours(date)
+  return hours > 9 && hours < 20
+}
+
 // https://openweathermap.org/weather-conditions
 
 export const LIGHT_RAIN_CODES = [500, 501, 520, 521, 302, 310, 311, 312, 313, 321]
@@ -89,7 +94,7 @@ export const getAverageTemperature = (data: any[]): number => {
   return temps.reduce((acc, temp) => acc + temp, 0) / temps.length
 }
 
-export const getMessagesByFilter = (deriveMessagesFn: (data: any[], period: string) => string[]) => (
+export const getMessagesByFilter = (deriveMessagesFn: (data: any[], period: string, timezone: string) => string[]) => (
   data: any[],
   filterFn: (givenDate: Date, currentDate: Date) => boolean,
   period: string,
@@ -100,5 +105,5 @@ export const getMessagesByFilter = (deriveMessagesFn: (data: any[], period: stri
     const givenDate = utcToZonedTime(currentData.dt * 1000, timezone)
     return filterFn(givenDate, currentDate)
   })
-  return deriveMessagesFn(filteredData, period)
+  return deriveMessagesFn(filteredData, period, timezone)
 }
