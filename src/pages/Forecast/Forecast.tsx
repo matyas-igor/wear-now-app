@@ -11,6 +11,7 @@ import ForecastMainInfo from './components/ForecastMainInfo'
 import ForecastHourlyInfo from './components/ForecastHourlyInfo'
 import ForecastAdditionalInfo from './components/ForecastAdditionalInfo'
 import { getPlantMessages } from '../../helpers/plants'
+import { getClothesMessages } from '../../helpers/clothes'
 
 const Forecast: React.FC = () => {
   const location = useLocation()
@@ -33,6 +34,7 @@ const Forecast: React.FC = () => {
     }
   }, [location])
 
+  // Loading forecast data  about city
   const { loading, data, error } = useWeatherForecast(city)
 
   const dataHourly = useMemo(
@@ -46,8 +48,9 @@ const Forecast: React.FC = () => {
     [data]
   )
 
+  // Plants & clothes recommendations
   const plantMessages = data ? getPlantMessages(data) : []
-  const clothesMessages = data ? getPlantMessages(data) : []
+  const clothesMessages = data ? getClothesMessages(data) : []
 
   return loading ? (
     <Spinner />
@@ -78,7 +81,7 @@ const Forecast: React.FC = () => {
     </Container>
   ) : (
     <Container>
-      <Text fontSize={[2, null, 3]} color="gray">
+      <Text fontSize={[2, null, 3]} color={'#aaa'}>
         Forecast will be displayed here
       </Text>
     </Container>

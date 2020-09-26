@@ -62,6 +62,10 @@ export const HEAVY_RAIN_CODES = [502, 503, 504, 511, 522, 531, 314]
 export const THUNDERSTORM_CODES = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232]
 
 export const SNOW_CODES = [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622]
+
+export const LIGHT_SNOW_CODES = [600, 601, 611, 612, 615, 616, 620, 621]
+export const HEAVY_SNOW_CODES = [602, 613, 622]
+
 export const CLEAR_SKY_CODES = [800, 801, 802]
 
 export const MEDIUM_HUMIDITY = 70
@@ -71,6 +75,19 @@ export const HARD_WIND = 20
 
 export const isIncludesCodes = (data: any[], codes: number[]): boolean =>
   data.filter((currentData: any) => currentData.weather.filter((w: any) => codes.includes(w.id)).length > 0).length > 0
+
+export const getTemperature = (data: any): number => {
+  if (typeof data.temp === 'number') {
+    return data.temp
+  } else {
+    return data.temp.day
+  }
+}
+
+export const getAverageTemperature = (data: any[]): number => {
+  const temps = data.map(getTemperature)
+  return temps.reduce((acc, temp) => acc + temp, 0) / temps.length
+}
 
 export const getMessagesByFilter = (deriveMessagesFn: (data: any[], period: string) => string[]) => (
   data: any[],

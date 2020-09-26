@@ -1,6 +1,7 @@
 import { utcToZonedTime } from 'date-fns-tz'
 import {
-  CLEAR_SKY_CODES, getMessagesByFilter,
+  CLEAR_SKY_CODES,
+  getMessagesByFilter,
   HARD_WIND,
   HEAVY_RAIN_CODES,
   isCurrentWeekend,
@@ -28,10 +29,10 @@ const derivePlantMessages = (data: any[], period: string): string[] => {
   const isThunderstormExpected = isIncludesCodes(data, THUNDERSTORM_CODES)
   const isClearSkyExpected = isIncludesCodes(data, CLEAR_SKY_CODES)
   const isSnowExpected = isIncludesCodes(data, SNOW_CODES)
-  const isHighHumidity = data.filter((dailyData: any) => dailyData.humidity < MEDIUM_HUMIDITY).length === 0
+  const isHighHumidity = data.filter((currentData: any) => currentData.humidity < MEDIUM_HUMIDITY).length === 0
 
-  const isMediumWind = data.filter((dailyData: any) => dailyData.wind_speed >= MEDIUM_WIND).length > 0
-  const isHardWind = data.filter((dailyData: any) => dailyData.wind_speed >= HARD_WIND).length > 0
+  const isMediumWind = data.filter((currentData: any) => currentData.wind_speed >= MEDIUM_WIND).length > 0
+  const isHardWind = data.filter((currentData: any) => currentData.wind_speed >= HARD_WIND).length > 0
 
   // Calculate based on flags
 
@@ -39,14 +40,14 @@ const derivePlantMessages = (data: any[], period: string): string[] => {
     messages.push(`Thunderstorms expected ${period}, put your plants inside!`)
     canStayOutside = false
   } else if (isHeavyRainExpected) {
-    messages.push(`Heavy rain expected ${period}, consider putting your plants inside`)
+    messages.push(`Heavy rain expected ${period}, consider putting your plants inside.`)
     canStayOutside = false
   } else if (isLightRainExpected) {
-    messages.push(`Light rain expected ${period}, plants should be enough hydrated`)
+    messages.push(`Light rain expected ${period}, plants should be enough hydrated.`)
   } else if (!isClearSkyExpected && isHighHumidity) {
-    messages.push(`No direct sun and high humidity expected ${period}, plants should be enough hydrated`)
+    messages.push(`No direct sun and high humidity expected ${period}, plants should be enough hydrated.`)
   } else if (isSnowExpected) {
-    messages.push(`Snowing expected ${period}, consider putting your plants inside`)
+    messages.push(`Snowing expected ${period}, consider putting your plants inside.`)
     canStayOutside = false
   } else {
     messages.push(`Warm weather and direct sun expected ${period}, consider watering your plants!`)
@@ -57,10 +58,10 @@ const derivePlantMessages = (data: any[], period: string): string[] => {
       messages.push(`Hard wind expected ${period}, better put your plants inside!`)
       canStayOutside = false
     } else if (isMediumWind) {
-      messages.push(`Medium wind expected ${period}, consider putting your plants inside`)
+      messages.push(`Medium wind expected ${period}, consider putting your plants inside.`)
       canStayOutside = false
     } else {
-      messages.push(`No heavy wind expected ${period}, your plants can enjoy staying outside`)
+      messages.push(`No heavy wind expected ${period}, your plants can enjoy staying outside.`)
     }
   }
 

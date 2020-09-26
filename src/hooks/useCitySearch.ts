@@ -41,7 +41,7 @@ export const useCitySearch = (): {
     if (loading) {
       setWaiting(true)
     } else {
-      // Wait additional 1s to implement API calls throttling
+      // Wait additional 1s to implement throttling of API calls
       const timeoutId = setTimeout(() => setWaiting(false), 1000)
       return () => clearTimeout(timeoutId)
     }

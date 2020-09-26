@@ -33,8 +33,10 @@ const Home: React.FC = () => {
     }
   }, [checked, cityValue])
 
+  // Searching city hook
   const { search, cities, loading, error, message } = useCitySearch()
 
+  // Selecting city callback
   const select = useCallback(
     (city) => {
       setCityValue({
