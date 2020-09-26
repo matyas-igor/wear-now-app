@@ -15,7 +15,7 @@ Live demo: https://wear-now.netlify.app/
 
 <img width="1552" alt="Saint Petersburg" src="https://user-images.githubusercontent.com/3536796/94346854-cbf18c80-002f-11eb-84c0-fcfdbaffa220.png">
 
-<img width="1552" alt="Barcelona" src="https://user-images.githubusercontent.com/3536796/94346867-e0ce2000-002f-11eb-8aaf-6dc3055b0b5f.png">
+<img width="1552" alt="Barcelona" src="https://user-images.githubusercontent.com/3536796/94347519-36f19200-0035-11eb-8797-f26571199364.png">
 
 <img width="1552" alt="Main screen" src="https://user-images.githubusercontent.com/3536796/94346880-fc392b00-002f-11eb-8eca-1414f53425fd.png">
 
