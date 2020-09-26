@@ -3,6 +3,7 @@ import { Flex, Heading, Text } from 'rebass/styled-components'
 import WeatherIcon from '../../../components/WeatherIcon'
 import Container, { ContainerProps } from '../../../components/Container'
 import { City } from '../../../helpers/types'
+import { printDate } from '../../../helpers/date'
 
 type Props = {
   dataCurrent: any
@@ -12,7 +13,10 @@ type Props = {
 
 const ForecastMainInfo: React.FC<Props & ContainerProps> = ({ city, dataCurrent, timezone, ...props }) => (
   <Container {...props}>
-    <Heading fontSize={[5, 6, 7]}>
+    <Heading as="h3" fontWeight="normal" lineHeight="0.9em" fontSize={[3, null, 4]}>
+      {printDate(dataCurrent.dt * 1000, 'HH:mm, EEEE, MMMM d, yyyy', timezone)}
+    </Heading>
+    <Heading as="h1" fontSize={[5, 6, 7]}>
       It’s {dataCurrent.weather[0].description} now in {city.city}
     </Heading>
     <Flex flexDirection="row" justifyContent="flex-start" alignItems="flex-start">

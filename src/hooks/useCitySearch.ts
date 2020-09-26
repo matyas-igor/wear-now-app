@@ -28,7 +28,8 @@ export const useCitySearch = (): {
     const data = await get(`/json?${queryString.stringify({ q: cityName, key: OPEN_CAGE_KEY })}`)
     if (response.ok) {
       if (data.status.code === 200) {
-        setCities(data.results)
+        // Take first 6 results
+        setCities(data.results.splice(0, 6))
         setMessage(null)
       } else {
         setCities([])

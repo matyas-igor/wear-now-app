@@ -65,7 +65,7 @@ const deriveClothesMessages = (data: any[], period: string): string[] => {
     } else if (isThunderstormExpected) {
       messages.push(`It's going to be thunderstorm ${period} and cold, so heavy rain coat and umbrella are a must!`)
     } else {
-      messages.push(`It's going to be cold ${period}, so a coat or thick jumper might be sensible.`)
+      messages.push(`It's going to be cold ${period}, so coat or thick jumper might be sensible.`)
     }
     messages.push(`Consider taking a light beanie!`)
     if (isClearSkyExpected) {

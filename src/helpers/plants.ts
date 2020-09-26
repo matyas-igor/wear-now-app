@@ -34,7 +34,7 @@ const derivePlantMessages = (data: any[], period: string): string[] => {
   const isMediumWind = data.filter((currentData: any) => currentData.wind_speed >= MEDIUM_WIND).length > 0
   const isHardWind = data.filter((currentData: any) => currentData.wind_speed >= HARD_WIND).length > 0
 
-  // Calculate based on flags
+  // Calculate based on weather flags
 
   if (isThunderstormExpected) {
     messages.push(`Thunderstorms expected ${period}, put your plants inside!`)
