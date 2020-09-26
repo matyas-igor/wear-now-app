@@ -10,6 +10,7 @@ import Spinner from '../../components/Spinner'
 import ForecastMainInfo from './components/ForecastMainInfo'
 import ForecastHourlyInfo from './components/ForecastHourlyInfo'
 import ForecastAdditionalInfo from './components/ForecastAdditionalInfo'
+import { getPlantMessages } from '../../helpers/weather'
 
 const Forecast: React.FC = () => {
   const location = useLocation()
@@ -45,6 +46,8 @@ const Forecast: React.FC = () => {
     [data]
   )
 
+  const plantMessages = data ? getPlantMessages(data) : []
+
   return loading ? (
     <Spinner />
   ) : city && data ? (
@@ -62,6 +65,7 @@ const Forecast: React.FC = () => {
         dataCurrent={data.current}
         dataDaily={dataDaily}
         timezone={data.timezone}
+        plantMessages={plantMessages}
       />
     </>
   ) : error ? (

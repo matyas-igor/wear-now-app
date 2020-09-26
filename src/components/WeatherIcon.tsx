@@ -1,6 +1,6 @@
 import * as React from 'react'
-import styled from 'styled-components'
-import { space, SpaceProps, layout, LayoutProps, compose } from 'styled-system'
+
+import Icon, { IconProps } from './Icon'
 
 import { ReactComponent as wiDaySunny } from '../icons/wi-day-sunny.svg'
 import { ReactComponent as wiNightClear } from '../icons/wi-night-clear.svg'
@@ -71,22 +71,10 @@ const imageSelector = (name?: string) => {
 }
 
 type Props = {
-  color?: string
-  name?: string
+  name: string
 }
 
-const Icon = styled.span<Props & SpaceProps & LayoutProps>`
-  display: inline-flex;
-  box-sizing: content-box;
-  ${compose(space, layout)}
-  & svg {
-    fill: ${({ color }) => color};
-    width: inherit !important;
-    height: inherit !important;
-  }
-`
-
-const WeatherIcon: React.FC<Props & SpaceProps & LayoutProps> = ({ name, color = '#000', ...props }) => {
+const WeatherIcon: React.FC<Props & IconProps> = ({ name, color = '#000', ...props }) => {
   const SvgIcon = imageSelector(name)
   return (
     <Icon color={color} {...props}>
