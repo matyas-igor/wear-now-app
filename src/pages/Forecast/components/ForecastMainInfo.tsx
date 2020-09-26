@@ -13,7 +13,7 @@ type Props = {
 
 const ForecastMainInfo: React.FC<Props & ContainerProps> = ({ city, dataCurrent, timezone, ...props }) => (
   <Container {...props}>
-    <Heading as="h3" fontWeight="normal" lineHeight="0.9em" fontSize={[3, null, 4]}>
+    <Heading as="h3" fontWeight="normal" lineHeight="0.9em" fontSize={[3, null, 4]} mb={[2, 1, 0]}>
       {printDate(dataCurrent.dt * 1000, 'HH:mm, EEEE, MMMM d, yyyy', timezone)}
     </Heading>
     <Heading as="h1" fontSize={[5, 6, 7]}>
