@@ -5,6 +5,8 @@ Service that shows current weather, recommends clothing and plant care options i
 - Uses API of [`OpenWeatherMap`](https://openweathermap.org/) and [`OpenCage`](https://opencagedata.com/)  
 - Bootsrapped with `create-react-app` and `typescript`
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/96a3bc00-fabc-4bb1-a42e-f414c0852ae5/deploy-status)](https://app.netlify.com/sites/wear-now/deploys)
+
 ## Demo
 
 <img width="1552" alt="Berlin" src="https://user-images.githubusercontent.com/3536796/94346838-b4b29f00-002f-11eb-80ad-237aa4b132ba.png">
