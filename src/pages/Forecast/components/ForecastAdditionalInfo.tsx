@@ -9,9 +9,17 @@ type Props = {
   dataDaily: any[]
   timezone: string
   plantMessages: string[]
+  clothesMessages: string[]
 }
 
-const ForecastAdditionalInfo: React.FC<Props & ContainerProps> = ({ plantMessages, dataCurrent, dataDaily, timezone, ...props }) => (
+const ForecastAdditionalInfo: React.FC<Props & ContainerProps> = ({
+  plantMessages,
+  clothesMessages,
+  dataCurrent,
+  dataDaily,
+  timezone,
+  ...props
+}) => (
   <Container {...props}>
     <Flex
       width="100%"
@@ -19,7 +27,13 @@ const ForecastAdditionalInfo: React.FC<Props & ContainerProps> = ({ plantMessage
       justifyContent={['flex-start', 'space-between']}
       alignItems={['stretch', 'flex-start']}
     >
-      <ForecastCurrentInfo mb={[4, 0]} dataCurrent={dataCurrent} timezone={timezone} plantMessages={plantMessages} />
+      <ForecastCurrentInfo
+        mb={[4, 0]}
+        dataCurrent={dataCurrent}
+        timezone={timezone}
+        plantMessages={plantMessages}
+        clothesMessages={clothesMessages}
+      />
       <ForecastDailyInfo ml={[0, 4]} dataDaily={dataDaily} timezone={timezone} />
     </Flex>
   </Container>

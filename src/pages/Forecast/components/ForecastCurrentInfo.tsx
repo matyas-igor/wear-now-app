@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Box, BoxProps, Flex, Text } from 'rebass/styled-components'
 import { printDate } from '../../../helpers/date'
 import Icon from '../../../components/Icon'
+import { ReactComponent as ShirtIcon } from '../../../icons/ion-shirt.svg'
 import { ReactComponent as PlantIcon } from '../../../icons/remix-plant.svg'
 import ForecastCurrentMessages from './ForecastCurrentMessages'
 
@@ -9,12 +10,21 @@ type Props = {
   dataCurrent: any
   timezone: string
   plantMessages: string[]
+  clothesMessages: string[]
 }
 
-const ForecastCurrentInfo: React.FC<Props & BoxProps> = ({ plantMessages, dataCurrent, timezone, ...props }) => (
+const ForecastCurrentInfo: React.FC<Props & BoxProps> = ({ plantMessages, clothesMessages, dataCurrent, timezone, ...props }) => (
   <Box sx={{ flexGrow: 1 }} {...props}>
     <Flex width="100%" m={-2} mb={[4, null, 5]} flexWrap="wrap" flexDirection="row">
       <Box width={[1, null, null, 1 / 2]} p={2}>
+        <ForecastCurrentMessages
+          messages={clothesMessages}
+          icon={
+            <Icon size={['18px', null, '20px', null, '22px']}>
+              <ShirtIcon />
+            </Icon>
+          }
+        />
       </Box>
       <Box width={[1, null, null, 1 / 2]} p={2}>
         <ForecastCurrentMessages
