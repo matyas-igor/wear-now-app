@@ -19,8 +19,7 @@ Service that shows current weather, recommends clothing and plant care options i
 
 <img width="1552" alt="Berlin search screen" src="https://user-images.githubusercontent.com/3536796/94346885-03603900-0030-11eb-8141-e086d0cb3a74.png">
 
-<img width="1552" alt="Barcelona search screen" src="https://user-images.githubusercontent.com/3536796/94346913-24288e80-0030-11eb-8f7e-e80d81220a11.png">
-
+<img width="1552" alt="Barcelona search screen" src="https://user-images.githubusercontent.com/3536796/94347017-145d7a00-0031-11eb-9cef-c2e21449534f.png">
 
 --------
 
