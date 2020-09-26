@@ -7,6 +7,20 @@ Service that shows current weather, recommends clothing and plant care options i
 
 ## Demo
 
+<img width="1552" alt="Berlin" src="https://user-images.githubusercontent.com/3536796/94346838-b4b29f00-002f-11eb-80ad-237aa4b132ba.png">
+
+<img width="1552" alt="Saint Petersburg" src="https://user-images.githubusercontent.com/3536796/94346854-cbf18c80-002f-11eb-84c0-fcfdbaffa220.png">
+
+<img width="1552" alt="Barcelona" src="https://user-images.githubusercontent.com/3536796/94346867-e0ce2000-002f-11eb-8aaf-6dc3055b0b5f.png">
+
+<img width="1552" alt="Main screen" src="https://user-images.githubusercontent.com/3536796/94346880-fc392b00-002f-11eb-8eca-1414f53425fd.png">
+
+<img width="1552" alt="Berlin input screen" src="https://user-images.githubusercontent.com/3536796/94346883-ff341b80-002f-11eb-9ff8-08a5bbd09845.png">
+
+<img width="1552" alt="Berlin search screen" src="https://user-images.githubusercontent.com/3536796/94346885-03603900-0030-11eb-8141-e086d0cb3a74.png">
+
+<img width="1552" alt="Barcelona search screen" src="https://user-images.githubusercontent.com/3536796/94346913-24288e80-0030-11eb-8f7e-e80d81220a11.png">
+
 
 --------
 
